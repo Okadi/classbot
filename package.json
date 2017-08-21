@@ -3,12 +3,15 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start": "node-dev src/index",
-    "test": "mocha test -w --recursive"
+    "start": "node-dev src/index"
+  },
+  "dependencies": {
+    "discord.js": "^11.1.0",
+    "opusscript": "0.0.3"
   },
   "keywords": [
     "discord",
     "bot"
   ],
-  "author": "Okadi",
+  "author": "Okadi"
 }
