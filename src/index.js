@@ -1,8 +1,9 @@
-const Discord = require('discord.js')
-const client = new Discord.Client()
-const colors = require('colors');
-const config = require('./files/config.json')
-const token = require('./files/token.json')
+const discord = require('discord.js')
+const token = require('./files/token.json').token
+const commandService = require('./services/commandService.js')
+
+const client = new discord.Client()
+const commandServiceInstance = new commandService()
 
 client.on('ready', () => {
     console.log('Nathan has entered the building.\nYou quake in your boots.\n\nBot successfully started!\n\nMessage log:\n')
@@ -12,12 +13,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if(message.content === '!ping' && !message.author.bot) {
-        message.channel.send('!ping')
-        console.log("(".green.bold+message.guild.name.green.bold+") ".green.bold+message.author.username.green.bold+" in #".green.bold+message.channel.name.green.bold+": ".green.bold+message.content);
-    } else {
-        console.log("(".red.bold+message.guild.name.red.bold+") ".red.bold+message.author.username.red.bold+" in #".red.bold+message.channel.name.red.bold+": ".red.bold+message.content);
-    }
+    commandServiceInstance.handleCommand(message)
 });
 
-client.login(token.token)
+client.login(token)

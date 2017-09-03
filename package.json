@@ -3,11 +3,14 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start": "node-dev src/index"
+    "start": "node-dev src/index",
+	"deploy": "node src/index"
   },
   "dependencies": {
     "discord.js": "^11.1.0",
-    "opusscript": "0.0.3"
+    "opusscript": "0.0.3",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
   },
   "keywords": [
     "discord",
