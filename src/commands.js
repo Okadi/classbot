@@ -10,6 +10,8 @@ module.exports = {
     ]
 }
 
+// Move this into a new service.
+
 const getUser = (parameter) => {
     return request(`https://osu.ppy.sh/api/get_user?k=${osuapi}&u=${parameter}`)
     .then((response) => {
